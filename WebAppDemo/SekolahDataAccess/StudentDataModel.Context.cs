@@ -18,6 +18,9 @@ namespace SekolahDataAccess
         public SekolahDBEntities()
             : base("name=SekolahDBEntities")
         {
+            // Added to resolve the serialization issue..
+            this.Configuration.LazyLoadingEnabled = false;
+            this.Configuration.ProxyCreationEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

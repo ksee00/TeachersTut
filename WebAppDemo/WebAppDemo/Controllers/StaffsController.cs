@@ -10,6 +10,7 @@ namespace WebAppDemo.Controllers
 {
     public class StaffsController : ApiController
     {
+   
         public IEnumerable<Staff> Get()
         {
             using (
@@ -17,6 +18,19 @@ namespace WebAppDemo.Controllers
             {
                 return entities.Staffs.ToList();
             }
+
+        }
+
+        public Staff Get(int id)
+        {
+            using (
+                SekolahDBEntities entities = new SekolahDBEntities())
+            {
+                return entities.Staffs.FirstOrDefault(e => e.StaffId == id);
+            }
         }
     }
 }
+
+
+
